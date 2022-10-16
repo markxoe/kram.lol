@@ -8,9 +8,14 @@ const db = deta.Base("counter");
 app.get("/", async (req, res) => {
   let val = (await db.get("view_count"))?.count ?? 0;
 
+  res.send({ count: val });
+});
+
+app.post("/visit", async (req, res) => {
+  let val = (await db.get("view_count"))?.count ?? 0;
   await db.put({ count: ++val }, "view_count");
 
-  res.send({ count: val });
+  res.send("OK");
 });
 
 module.exports = app;
