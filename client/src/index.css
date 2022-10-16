@@ -1,0 +1,68 @@
+:root {
+  --background: rgb(255, 251, 232);
+  --text: rgb(30, 30, 26);
+  --background-code: rgb(196, 194, 167);
+  --text-code: rgb(39, 0, 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: rgb(255, 248, 212);
+    --background: rgb(30, 30, 26);
+    --text-code: rgb(249, 89, 89);
+    --background-code: rgb(47, 47, 47);
+  }
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+
+  font-family: "Inter", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  background: var(--background);
+  color: var(--text);
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  margin: 0 20px;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  line-height: 2.5rem;
+}
+
+h2 {
+  font-weight: 200;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 2rem;
+}
+
+p {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.space {
+  padding-top: 2rem;
+}
+
+code {
+  background-color: var(--background-code);
+  color: var(--text-code);
+  padding: 4px;
+  border-radius: 4px;
+}
