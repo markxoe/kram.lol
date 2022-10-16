@@ -6,12 +6,12 @@ const App: FC = () => {
 
   const load = async () => {
     if (window.localStorage.getItem("visited") != "yaas") {
-      await axios.post(`https://${import.meta.env.VITE_SERVER_DOMAIN}/visit`);
+      await axios.post(`https://counter.kram.lol/visit`);
       window.localStorage.setItem("visited", "yaas");
     }
 
     await axios
-      .get<{ count: number }>(`https://${import.meta.env.VITE_SERVER_DOMAIN}/`)
+      .get<{ count: number }>(`https://counter.kram.lol/`)
       .then((r) => setCount(r.data.count));
   };
 
