@@ -28,7 +28,8 @@ const App: FC = () => {
         <div className="space" />
 
         <p>
-          <code>{count ?? "0"}</code> other 👽 have seen this
+          {count ? <code>{count}</code> : <span className="spinner"></span>}{" "}
+          other 👽 have seen this
         </p>
       </div>
     </div>

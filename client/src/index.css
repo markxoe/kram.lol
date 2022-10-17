@@ -66,3 +66,24 @@ code {
   padding: 4px;
   border-radius: 4px;
 }
+
+.spinner {
+  height: 0.75rem;
+  width: 0.75rem;
+  margin-bottom: -0.2rem;
+  margin-right: 0.5rem;
+
+  display: inline-block;
+  border: 3px solid transparent;
+  border-top: 3px solid var(--text);
+  border-right: 3px solid var(--text);
+
+  border-radius: 100px;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
