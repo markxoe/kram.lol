@@ -2,7 +2,9 @@ import axios from "axios";
 import { FC, useEffect, useState } from "react";
 
 const App: FC = () => {
-  const [count, setCount] = useState(undefined);
+  const [count, setCount] = useState<{ visitors: number; views: number }>(
+    undefined
+  );
 
   const load = async () => {
     if (window.localStorage.getItem("visited") != "yaas") {
@@ -11,8 +13,8 @@ const App: FC = () => {
     }
 
     await axios
-      .get<{ count: number }>(`https://counter.kram.lol/`)
-      .then((r) => setCount(r.data.count));
+      .get<{ visitors: number; views: number }>(`https://counter.kram.lol/`)
+      .then((r) => setCount(r.data));
   };
 
   useEffect(() => {
@@ -28,8 +30,20 @@ const App: FC = () => {
         <div className="space" />
 
         <p>
-          {count ? <code>{count}</code> : <span className="spinner"></span>}{" "}
+          {count ? (
+            <code>{count.visitors}</code>
+          ) : (
+            <span className="spinner"></span>
+          )}{" "}
           other 👽 have seen this
+        </p>
+        <p>
+          {count ? (
+            <code>{count.views}</code>
+          ) : (
+            <span className="spinner"></span>
+          )}{" "}
+          👀 in total
         </p>
       </div>
     </div>
